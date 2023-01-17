@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tardezinha</title>
+    <link rel="stylesheet" href="Tardezinha.css">
+</head>
+<body>
+    <header>
+        <img src="https://img.elo7.com.br/product/original/3A28A64/painel-tardezinha-arte-para-impressao-painel-para-imprimir.jpg" id="fotoTardezinha"/>
+    </header>
+    <div class="intro">
+        <div id="intro1">
+            <p id="Q1">Entradas:<br><br>
+            Ticket Médio<br>
+            Número de Pessoas<br><br><br>
+            Saída:<br><br>
+            Lucro Previsto
+            </p>
+        </div>
+        <div id="intro2">Entradas:<br><br>
+            Ticket Médio<br>
+            Lucro Previsto<br><br><br>
+            Saída:<br><br>
+            Número de Pessoas</div>
+        <div id="intro3">Entradas:<br><br>
+            Lucro Previsto<br>
+            Número de Pessoas<br><br><br>
+            Saída:<br><br>
+            Ticket Médio</div>
+    </div>
+    <div id="pagBebidas">
+        <div class="inputBody">
+            <input type="input" class="input" id="nBebidas" placeholder="Número de Bebidas" required/>
+            <label for="nBebidas" class="form">Número de Bebidas</label> 
+        </div>
+        <div class="formBody">
+            <div class="dataForm" id="bodyB1">
+                <h3 class ="cabecalho" value="Bebidas">Bebidas</h3>
+                <div class="frameInput">
+                </div>
+            </div>
+            <div class="dataForm" id="bodyB2">
+                <h3 class ="cabecalho">Consumo / Pessoa</h3>
+                <div class="frameInput">
+                </div>
+            </div>
+            <div class="dataForm" id="bodyB3">
+                <h3 class ="cabecalho">Preço / Litro</h3>
+                <div class="frameInput">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="pagEstrutura">
+        <div class="inputBody">
+            <input type="input" class="input" id="nEstruturas" placeholder="Número de Estruturas" required/>
+            <label for="nEstruturas" class="form">N Estruturas</label> 
+        </div>
+        <div class="formBody">
+            <div class="dataForm" id="bodyE1">
+                <h3 class ="cabecalho">Estruturas</h3>
+                <div class="frameInputE">
+                </div>
+            </div>
+            <div class="dataForm" id="bodyE2">
+                <h3 class ="cabecalho">Quantidade</h3>
+                <div class="frameInputE">
+                </div>
+            </div>
+            <div class="dataForm" id="bodyE3">
+                <h3 class ="cabecalho">Valor / Unidade</h3>
+                <div class="frameInputE">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="pagAtracoes">
+        <div class="inputBody">
+            <input type="input" class="input" id="nAtracoes" placeholder="N Atrações" required/>
+            <label for="nAtracoes" class="form">N Atrações</label> 
+        </div>
+        <div class="formBody">
+            <div class="dataForm" id="bodyA1">
+                <h3 class ="cabecalho">Atrações</h3>
+                <div class="frameInputA">
+                </div>
+            </div>
+            <div class="dataForm" id="bodyA2">
+                <h3 class ="cabecalho">Custo</h3>
+                <div class="frameInputA">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="pagOutros">
+        <div class="inputBody">
+            <input type="input" class="input" id="nOutros" placeholder="N Outros" required/>
+            <label for="nOutros" class="form">N Outros</label> 
+        </div>
+        <div class="formBody">
+            <div class="dataForm" id="bodyO1">
+                <h3 class ="cabecalho">Outros</h3>
+                <div class="frameInputO">
+                </div>
+            </div>
+            <div class="dataForm" id="bodyO2">
+                <h3 class ="cabecalho">Custo</h3>
+                <div class="frameInputO">
+                </div>
+            </div>
+        </div>
+    </div>
+    <section>
+        <div id="buttonBody">
+            <button type="button" id="button">Calcular</button>
+        </div>
+        <main>
+            <table>
+                <tbody id="tabBody">
+                    <tr>
+                        <td>
+                            Tabela 1 - Valores
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </section>
+    <script src="Tardezinha.js"></script>
+</body>
+</html>
