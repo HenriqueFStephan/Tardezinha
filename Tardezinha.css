@@ -22,7 +22,7 @@
 }
 
 .intro > div{
-    opacity: 0.5;
+    opacity: 1;
     background-size: 100%;
     width: 32%;
     margin: 1%;
@@ -34,20 +34,20 @@
 }
 
 .intro > #intro1{
-    background-image: url(GaleraL.png);
+    background-image: url(./assets/GaleraL.png);
     background-size: 110%;
 }
 
 #intro2{
-    background-image: url(GaleraC.png);
+    background-image: url(./assets/GaleraC.png);
 }
 
 #intro3{
-    background-image: url(GaleraR.png);
+    background-image: url(./assets/GaleraR.png);
 }
 
 .intro > div:hover{
-    opacity: 1.0;
+    opacity: 0.4;
     font-weight: 1000;
 }
 
@@ -158,7 +158,7 @@
 }
 
 #bodyB1{
-    background-image: url(Domin.jpg);
+    background-image: url(./assets/Domin.jpg);
     background-size: 100%;
     
 }
@@ -167,7 +167,7 @@
 }
 
 #bodyB2{
-    background-image: url(Gugu.jpg);
+    background-image: url(./assets/Gugu.jpg);
     background-size: 100%;
 }
 
@@ -176,7 +176,7 @@
 }
 
 #bodyB3{
-    background-image: url(Tiazinha.jpg);
+    background-image: url(./assets/Tiazinha.jpg);
     background-size: 100%;
 }
 
@@ -201,7 +201,7 @@
 }
 
 #bodyE1{
-    background-image: url(E1.jpg);
+    background-image: url(./assets/E1.jpg);
     background-size: 100%;
     
 }
@@ -210,7 +210,7 @@
 }
 
 #bodyE2{
-    background-image: url(E2.jpg);
+    background-image: url(./assets/E2.jpg);
     background-size: 100%;
 }
 
@@ -219,7 +219,7 @@
 }
 
 #bodyE3{
-    background-image: url(E3.jpg);
+    background-image: url(./assets/E3.jpg);
     background-size: 100%;
 }
 
@@ -236,7 +236,7 @@
 }
 
 #bodyA1{
-    background-image: url(A1.jpg);
+    background-image: url(./assets/A1.jpg);
     background-size: 120%;
     width: 45%;
 }
@@ -246,7 +246,7 @@
 }
 
 #bodyA2{
-    background-image: url(A2.jpg);
+    background-image: url(./assets/A2.jpg);
     background-size: 120%;
     width: 45%;
 }
@@ -272,7 +272,7 @@
 }
 
 #bodyO1{
-    background-image: url(O1.jpg);
+    background-image: url(./assets/O1.jpg);
     background-size: 100%;
     width: 45%;
 }
@@ -282,7 +282,7 @@
 }
 
 #bodyO2{
-    background-image: url(O2.png);
+    background-image: url(./assets/O2.png);
     background-size: 100%;
     width: 45%;
 }
@@ -310,4 +310,34 @@ section {
     align-items: center;
     justify-content: center;
 }
+
+.formIntro {
+    background: transparent;
+    border-bottom: solid rgb(214, 214, 214) 5px;
+    font-size: 20px;
+    color: #ffffff;
+    font-weight: 900;
+    text-align: center;
+}
+
+#tab {
+    width: 100%;
+    border: #000 2vh;
+}
+
+#finalResults {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #cccccc;
+    height: 100%;
+}
+
+.row {
+    background-color: #b3b3b3;
+}
+
+
 /* Mexer opacidade formBody*/

@@ -7,29 +7,13 @@ const formsA = document.querySelectorAll('.frameInputA');
 let nOutros = document.getElementById('nOutros');
 const formsO = document.querySelectorAll('.frameInputO');
 const intro1 = document.getElementById('intro1');
-let ticketMedio1;
-let numeroPessoas1;
-const intro2 = document.getElementById('intro2');
-let ticketMedio2;
-let lucroPrevisto1;
-const intro3 = document.getElementById('intro3');
-let lucroPrevisto2;
-let numeroPessoas2;
+let ticketMedio1 = document.getElementById('ticketMedio1');
+let numeroPessoas1 = document.getElementById('nPessoas1');
+let ticketMedio2 = document.getElementById('ticketMedio2');
+let lucroPrevisto1 = document.getElementById('lucroPrevisto1');
+let lucroPrevisto2 = document.getElementById('lucroPrevisto2');
+let numeroPessoas2 = document.getElementById('nPessoas2');
 
-intro1.addEventListener('click', function(){
-    ticketMedio1 = prompt('Ticket Médio');
-    numeroPessoas1 = prompt('Número de Pessoas');
-})
-
-intro2.addEventListener('click', function(){
-    ticketMedio2 = prompt('Ticket Médio');
-    lucroPrevisto1 = prompt('Lucro Previsto');
-})
-
-intro3.addEventListener('click', function(){
-    lucroPrevisto2 = prompt('Lucro Previsto');
-    numeroPessoas2 = prompt('Número de Pessoas');
-})
 
 nBebidas.addEventListener('change', function(){
     let numBebidas = document.getElementById('nBebidas').value;
@@ -216,17 +200,48 @@ nOutros.addEventListener('change', function(){
 });
 
 let button = document.querySelector('#button');
-
+let totalBebidas1 = 0;
 button.addEventListener('click', function(){
-    let totalBebidas = 0 
-    let totalEstruturas = 0
-    let totalAtracoes = 0
-    let totalOutros = 0
-    let n = 0;
+    let tableBody = document.getElementById('tabBody');
+    tableBody.innerHTML = ''
     let numBebidas = document.getElementById('nBebidas').value;
     let numEstruturas = document.getElementById('nEstruturas').value;
     let numAtracoes = document.getElementById('nEstruturas').value;
     let numOutros = document.getElementById('nOutros').value;
+    let listaCP = [];
+    let listaPL = [];
+    let totalBebidaPessoa = 0;
+    let listaBebidas = ['bebida', 'C/P', 'P/L']
+    for (let j = 0; j < numBebidas; j++){
+        for (let i = 1; i < 3; i++){
+                n = document.getElementById(`${listaBebidas[i]}`+`${j+1}`).value;
+                if (i == 1) {
+                    listaCP.push(n);
+                }
+                else {
+                    listaPL.push(n);
+                }
+        }
+        totalBebidaPessoa += listaCP[j]*listaPL[j];
+    }
+
+    let listaQuant = [];
+    let listaEst = [];
+    let totalEst = 0;
+    let listaEstrutura = ['estrutura', 'quantidade', 'valor'];
+    for (let j = 0; j < numEstruturas; j++){
+        for (let i = 1; i < 3; i++){
+                n = document.getElementById(`${listaEstrutura[i]}`+`${j+1}`).value;
+                if (i == 1) {
+                    listaQuant.push(n);
+                }
+                else {
+                    listaEst.push(n);
+                }
+        }
+        totalEst += listaQuant[j]*listaEst[j];
+    }
+    
     let tab = document.getElementById('tabBody');
     let listaCabecalhoB = ['Bebida', 'Consumo por Pessoa', 'Preço por Litro'];
     for (let m = 0; m < 3; m++){
@@ -234,15 +249,13 @@ button.addEventListener('click', function(){
         td.textContent = `${listaCabecalhoB[m]}`
         tab.appendChild(td);
     }
-    let td = document.createElement('td');
-    td.textContent = 'Total';
-    tab.appendChild(td);
-    let listaBebidas = ['bebida', 'C/P', 'P/L']
+    //let listaBebidas = ['bebida', 'C/P', 'P/L']
     for (let j = 0; j < numBebidas; j++){
         let tr = document.createElement('tr');
         tab.appendChild(tr);
         for (let i = 0; i < 3; i++){
                 td = document.createElement('td');
+                td.setAttribute('class', 'row')
                 n = document.getElementById(`${listaBebidas[i]}`+`${j+1}`).value;
                 td.textContent = `${n}`;
                 tab.appendChild(td);
@@ -256,12 +269,13 @@ button.addEventListener('click', function(){
         td.textContent = `${listaCabecalhoE[m]}`
         tab.appendChild(td);
     }
-    let listaEstrutura = ['estrutura', 'quantidade', 'valor'];
+    //let listaEstrutura = ['estrutura', 'quantidade', 'valor'];
     for (let j = 0; j < numEstruturas; j++){
         let tr = document.createElement('tr');
         tab.appendChild(tr);
         for (let i = 0; i < 3; i++){
                 td = document.createElement('td');
+                td.setAttribute('class', 'row')
                 n = document.getElementById(`${listaEstrutura[i]}`+`${j+1}`).value;
                 td.textContent = `${n}`;
                 tab.appendChild(td);
@@ -275,18 +289,25 @@ button.addEventListener('click', function(){
         td.textContent = `${listaCabecalhoA[m]}`
         tab.appendChild(td);
     }
+    let totalAtracoes = 0;
     let listaAtracao = ['atracao', 'custo'];
     for (let j = 0; j < numAtracoes; j++){
         let tr = document.createElement('tr');
+        td.setAttribute('class', 'row')
         tab.appendChild(tr);
         for (let i = 0; i < 2; i++){
 
                 td = document.createElement('td');
+                td.setAttribute('class', 'row');
                 n = document.getElementById(`${listaAtracao[i]}`+`${j+1}`).value;
                 td.textContent = `${n}`;
                 tab.appendChild(td);
+                if (i == 1){
+                    totalAtracoes += Number(n);
+                }
         }
     }
+
     tr = document.createElement('tr');
     tab.appendChild(tr);
     let listaCabecalhoO = ['Outro', 'Valor'];
@@ -295,15 +316,21 @@ button.addEventListener('click', function(){
         td.textContent = `${listaCabecalhoO[m]}`
         tab.appendChild(td);
     }
+    totalOutros = 0;
     let listaOutro = ['outro', 'preco'];
     for (let j = 0; j < numOutros; j++){
         let tr = document.createElement('tr');
+        td.setAttribute('class', 'row');
         tab.appendChild(tr);
         for (let i = 0; i < 2; i++){
                 td = document.createElement('td');
+                td.setAttribute('class', 'row');
                 n = document.getElementById(`${listaOutro[i]}`+`${j+1}`).value;
                 td.textContent = `${n}`;
                 tab.appendChild(td);
+                if (i == 1) {
+                    totalOutros += Number(n);
+                }
         }
     }
     /*tr = document.createElement('tr');
@@ -316,4 +343,9 @@ button.addEventListener('click', function(){
     console.log(total)
     td.textContent = total;
     tab.appendChild(td);*/
+    let lucroPrevisto = Number(ticketMedio1.value)*Number(numeroPessoas1.value) - totalEst - totalAtracoes - totalOutros - Number(numeroPessoas1.value)*totalBebidaPessoa
+    let quantidadePessoas = (Number(lucroPrevisto1.value) + totalEst + totalAtracoes + totalOutros)/(Number(ticketMedio2.value) - totalBebidaPessoa)
+    let ticketMedio = (Number(lucroPrevisto2.value) + totalEst + totalAtracoes + totalOutros)/Number(numeroPessoas2.value) + totalBebidaPessoa;
+    const finalResultsTemplate = document.getElementById('finalResults');
+    finalResultsTemplate.innerHTML = `<div class= 'final'><h3>Lucro Previsto<h3><br>${lucroPrevisto}</div><div class = 'final'><h3>Quantidade de Pessoas<h3><br>${parseInt(quantidadePessoas, 10)}</div><div class = 'final'><h3>Ticket Médio<h3><br>${parseInt(ticketMedio)}</div>`
 });
